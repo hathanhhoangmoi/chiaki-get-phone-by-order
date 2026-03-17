@@ -3,8 +3,6 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
 app.use(express.static(path.join(__dirname)));
 app.use(express.json());
 
@@ -18,7 +16,6 @@ app.get('/api/order/:inoutputId', async (req, res) => {
       {
         headers: {
           'Accept': 'application/json, text/plain, */*',
-          'Accept-Encoding': 'gzip, deflate',
           'platform': 'ios',
           'Cookie': `laravel_session=${cookie}`,
           'User-Agent': 'chiakiApp/3.6.2'
@@ -32,4 +29,7 @@ app.get('/api/order/:inoutputId', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
