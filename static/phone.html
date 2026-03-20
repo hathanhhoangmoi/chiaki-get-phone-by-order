@@ -250,7 +250,7 @@ async function doSearch() {
     if (data.error) { showErr(data.error); return; }
 
     document.getElementById('resPhone').textContent   = data.phone       || 'Không có';
-    document.getElementById('resCode').textContent    = data.orde_rcode   || code;
+    document.getElementById('resCode').textContent    = data.order_code   || code;
     document.getElementById('resShop').textContent    = data.shop_name    || '—';
     document.getElementById('resDate').textContent    = data.order_date   || '—';
     document.getElementById('resName').textContent    = data.customer_name || data.receivername || '—';
