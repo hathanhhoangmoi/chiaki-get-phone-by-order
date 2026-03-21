@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tra cứu / Hủy đơn – Chiaki</title>
+<title>Order by Chang</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
@@ -184,7 +184,7 @@ body{
   <div class="card">
     <div class="logo phone">📞</div>
     <div class="title">Tra cứu SĐT khách hàng</div>
-    <div class="sub">Nhập mã đơn hàng và key để xem số điện thoại</div>
+    <div class="sub">Nhập MÃ ĐƠN HÀNG và KEYPHONE để xem thông tin đơn hàng</div>
 
     <div class="notice notice-phone">
       <div class="notice-title">⚠️ THÔNG BÁO MIỄN TRỪ TRÁCH NHIỆM</div>
@@ -244,20 +244,21 @@ body{
   <div class="card">
     <div class="logo cancel">❌</div>
     <div class="title">Hủy đơn hàng</div>
-    <div class="sub">Nhập mã đơn hàng và CANCEL KEY để gửi yêu cầu hủy</div>
+    <div class="sub">Nhập MÃ ĐƠN HÀNG và CANCEL KEY để gửi yêu cầu hủy</div>
 
     <div class="notice notice-cancel">
       <div class="notice-title">⚠️ QUY ĐỊNH HUỶ ĐƠN</div>
-      Chức năng này sẽ tự động huỷ đơn theo phương thức <b>"Khách hàng yêu cầu huỷ đơn"</b>.<br/><br/>
+      Chức năng này sẽ tự động huỷ đơn theo phương thức <b>"ℹ️ Khách hàng yêu cầu huỷ đơn"</b>.<br/><br/>
       Gian hàng không bị tính phí sau khi đơn hàng được huỷ theo phương thức này.<br/><br/>
       <span class="notice-title" style="display:block;margin-top:4px">📌 YÊU CẦU ĐỐI VỚI ĐƠN HÀNG CẦN HUỶ</span>
       Đơn hàng <b>CHƯA TẠO MÃ VẬN ĐƠN</b>.
+      Đã thông báo và trao đổi với khách hàng về thông tin đơn sẽ bị huỷ.
     </div>
 
     <div class="field">
       <label class="label">MÃ ĐƠN HÀNG CẦN HỦY</label>
       <input class="inp inp-mono" id="cancelCode" type="text"
-             placeholder="VD: R8547883114"
+             placeholder="VD: R123456789"
              onkeydown="if(event.key==='Enter')doCancel()"/>
     </div>
 
@@ -429,9 +430,9 @@ function doCancel() {
     ">
       🚧 Chức năng <b>hủy đơn hàng</b> đang được hoàn thiện.<br/><br/>
       Mã đơn: <b>${code}</b><br/>
-      Cancel Key: <span style="font-family:monospace">${key}</span><br/><br/>
+      Key: <span style="font-family:monospace">${key}</span><br/><br/>
       Vui lòng đảm bảo đơn hàng <b>CHƯA TẠO MÃ VẬN ĐƠN</b> trước khi gửi yêu cầu hủy.<br/><br/>
-      Hiện tại, vui lòng liên hệ đội vận hành để được hỗ trợ hủy đơn thủ công theo phương thức
+      Hiện tại, vui lòng liên hệ đội vận hành để được hỗ trợ theo phương thức
       <b>“Khách hàng yêu cầu hủy đơn”</b>.
     </div>
   `;
