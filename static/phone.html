@@ -310,7 +310,7 @@ body{
     </div>
 
     <button class="btn btn-pink" id="btnSearch" onclick="doSearch()">
-      🔍&nbsp; Nhận thông tin đơn hàng
+      🔍&nbsp; NHẬN THÔNG TIN ĐƠN HÀNG
     </button>
 
     <div class="error" id="errBox"></div>
@@ -350,26 +350,26 @@ body{
       Chức năng này sẽ tự động huỷ đơn theo phương thức <b>"ℹ️ Khách hàng yêu cầu huỷ đơn"</b>.<br/><br/>
       Gian hàng không bị tính phí sau khi đơn hàng được huỷ theo phương thức này.<br/><br/>
       <span class="notice-title" style="display:block;margin-top:4px">📌 YÊU CẦU ĐỐI VỚI ĐƠN HÀNG CẦN HUỶ</span>
-      Đơn hàng <b>CHƯA TẠO MÃ VẬN ĐƠN</b>.
-      Đã thông báo và trao đổi với khách hàng về thông tin đơn sẽ bị huỷ.
+      *Đơn hàng <b>CHƯA TẠO MÃ VẬN ĐƠN</b>.<br/>
+      *Đã thông báo và trao đổi với khách hàng về thông tin đơn hàng sẽ bị huỷ.
     </div>
 
     <div class="field">
       <label class="label">MÃ ĐƠN HÀNG CẦN HỦY</label>
       <input class="inp inp-mono" id="cancelCode" type="text"
-             placeholder="VD: R123456789"
+             placeholder="VD: R1234567890"
              onkeydown="if(event.key==='Enter')doCancel()"/>
     </div>
 
     <div class="field">
       <label class="label">CANCEL KEY</label>
       <input class="inp inp-mono" id="cancelKey" type="text"
-             placeholder="CANCEL-KEY-XXXXXXXX"
+             placeholder="CANCEL-KEY-****-*****"
              onkeydown="if(event.key==='Enter')doCancel()"/>
     </div>
 
     <button class="btn btn-red" id="btnCancel" onclick="doCancel()">
-      🚫&nbsp; Gửi yêu cầu hủy đơn
+      🚫&nbsp; GỬI YÊU CẦU HUỶ ĐƠN
     </button>
 
     <div id="cancelMsg" style="margin-top:14px;"></div>
@@ -390,14 +390,14 @@ body{
         </div>
 
         <label class="transfer-label">Mã đơn hàng đã có</label>
-        <input class="transfer-inp" id="transferOrderCode" type="text" placeholder="VD: R8547883114"/>
+        <input class="transfer-inp" id="transferOrderCode" type="text" placeholder="VD: R1234567890"/>
 
         <label class="transfer-label">Mã sản phẩm của đơn hàng</label>
-        <input class="transfer-inp" id="transferProductCode" type="text" placeholder="VD: SP001234"/>
+        <input class="transfer-inp" id="transferProductCode" type="text" placeholder="VD: P0123456"/>
 
         <label class="transfer-label">Key chuyển đơn hàng</label>
         <input class="transfer-inp" id="transferKey" type="text"
-               placeholder="TRANSFER-KEY-XXXXXXXX"
+               placeholder="TRANSFER-KEY-****-****"
                style="margin-bottom:18px;"/>
 
         <button class="btn btn-purple" onclick="openTransferConfirm()">
