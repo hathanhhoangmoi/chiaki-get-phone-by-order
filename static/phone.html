@@ -437,6 +437,262 @@ function doCancel() {
     </div>
   `;
 }
+<!-- ── BẢNG CHUYỂN ĐỔI ĐƠN HÀNG ── -->
+<div class="transfer-card" style="
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.75);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 32px rgba(160,130,200,0.13);
+  margin-top: 24px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+">
+  <!-- TIÊU ĐỀ -->
+  <div style="text-align:center; margin-bottom:22px;">
+    <div style="font-size:28px; margin-bottom:6px;">🔄</div>
+    <div style="font-size:16px; font-weight:700; color:#3b3551;">Chuyển đổi đơn hàng</div>
+    <div style="font-size:12px; color:#9b8bb4; margin-top:4px;">Chuyển đơn sang gian hàng mới và tự động huỷ đơn cũ</div>
+  </div>
+
+  <!-- 2 CỘT -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start;">
+
+    <!-- CỘT TRÁI: GIAN HÀNG PHÁT SINH ĐƠN HÀNG -->
+    <div style="
+      background: rgba(216,180,254,0.12);
+      border: 1.5px solid rgba(198,181,255,0.45);
+      border-radius: 14px;
+      padding: 18px 16px;
+    ">
+      <div style="font-size:10px; font-weight:700; color:#7c6fa0; letter-spacing:.6px;
+                  text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:6px;">
+        <span style="font-size:14px;">📤</span> Gian hàng phát sinh đơn hàng
+      </div>
+
+      <label style="font-size:11px; font-weight:700; color:#9b8bb4; letter-spacing:.4px; text-transform:uppercase;">Mã đơn hàng đã có</label>
+      <input id="transferOrderCode" type="text" placeholder="VD: R8547883114"
+        style="width:100%; box-sizing:border-box; margin:6px 0 12px; padding:10px 13px;
+               border:1.5px solid rgba(198,181,255,.5); border-radius:10px; font-size:13px;
+               font-family:monospace; letter-spacing:.8px; background:rgba(255,255,255,.65);
+               color:#3b3551; outline:none; transition:border .2s;"
+        onfocus="this.style.borderColor='#a78bfa'; this.style.boxShadow='0 0 0 3px rgba(167,139,250,.15)'"
+        onblur="this.style.borderColor='rgba(198,181,255,.5)'; this.style.boxShadow='none'" />
+
+      <label style="font-size:11px; font-weight:700; color:#9b8bb4; letter-spacing:.4px; text-transform:uppercase;">Mã sản phẩm của đơn hàng</label>
+      <input id="transferProductCode" type="text" placeholder="VD: SP001234"
+        style="width:100%; box-sizing:border-box; margin:6px 0 12px; padding:10px 13px;
+               border:1.5px solid rgba(198,181,255,.5); border-radius:10px; font-size:13px;
+               font-family:monospace; letter-spacing:.8px; background:rgba(255,255,255,.65);
+               color:#3b3551; outline:none; transition:border .2s;"
+        onfocus="this.style.borderColor='#a78bfa'; this.style.boxShadow='0 0 0 3px rgba(167,139,250,.15)'"
+        onblur="this.style.borderColor='rgba(198,181,255,.5)'; this.style.boxShadow='none'" />
+
+      <label style="font-size:11px; font-weight:700; color:#9b8bb4; letter-spacing:.4px; text-transform:uppercase;">Key chuyển đơn hàng</label>
+      <input id="transferKey" type="text" placeholder="VD: TRANSFER-KEY-XXXXXXXX"
+        style="width:100%; box-sizing:border-box; margin:6px 0 18px; padding:10px 13px;
+               border:1.5px solid rgba(198,181,255,.5); border-radius:10px; font-size:13px;
+               font-family:monospace; letter-spacing:.8px; background:rgba(255,255,255,.65);
+               color:#3b3551; outline:none; transition:border .2s;"
+        onfocus="this.style.borderColor='#a78bfa'; this.style.boxShadow='0 0 0 3px rgba(167,139,250,.15)'"
+        onblur="this.style.borderColor='rgba(198,181,255,.5)'; this.style.boxShadow='none'" />
+
+      <!-- BUTTON CHUYỂN ĐƠN -->
+      <button onclick="openTransferConfirm()"
+        style="width:100%; padding:12px; border:none; border-radius:12px;
+               background:linear-gradient(135deg,#c8b4fa,#a78bfa); color:#fff;
+               font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+               box-shadow:0 4px 16px rgba(167,139,250,.4); transition:all .2s;"
+        onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 8px 24px rgba(167,139,250,.5)'"
+        onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 16px rgba(167,139,250,.4)'">
+        🔄 Chuyển đơn hàng
+      </button>
+    </div>
+
+    <!-- CỘT PHẢI: GIAN HÀNG NHẬN ĐƠN MỚI -->
+    <div style="
+      background: rgba(167,243,208,0.12);
+      border: 1.5px solid rgba(110,231,183,0.35);
+      border-radius: 14px;
+      padding: 18px 16px;
+    ">
+      <div style="font-size:10px; font-weight:700; color:#059669; letter-spacing:.6px;
+                  text-transform:uppercase; margin-bottom:14px; display:flex; align-items:center; gap:6px;">
+        <span style="font-size:14px;">📥</span> Gian hàng nhận đơn hàng mới
+      </div>
+
+      <label style="font-size:11px; font-weight:700; color:#9b8bb4; letter-spacing:.4px; text-transform:uppercase;">Link gian hàng nhận đơn</label>
+      <input id="transferShopUrl" type="text" placeholder="VD: https://chiaki.vn/gian-hang-stXXXX"
+        style="width:100%; box-sizing:border-box; margin:6px 0 12px; padding:10px 13px;
+               border:1.5px solid rgba(110,231,183,.4); border-radius:10px; font-size:12px;
+               background:rgba(255,255,255,.65); color:#3b3551; outline:none; transition:border .2s;"
+        onfocus="this.style.borderColor='#10b981'; this.style.boxShadow='0 0 0 3px rgba(16,185,129,.12)'"
+        onblur="this.style.borderColor='rgba(110,231,183,.4)'; this.style.boxShadow='none'" />
+
+      <!-- Ghi chú thông tin -->
+      <div style="background:rgba(167,243,208,.2); border:1px solid rgba(110,231,183,.35);
+                  border-radius:10px; padding:12px 14px; margin-top:8px; font-size:11px;
+                  color:#065f46; line-height:1.7;">
+        <div style="font-weight:700; margin-bottom:6px; font-size:11px; color:#047857;">
+          📌 Lưu ý khi chuyển đơn:
+        </div>
+        <div>• Đơn cũ sẽ bị <b>huỷ tự động</b> sau khi chuyển</div>
+        <div>• Mã đơn mới sẽ được tạo tại gian hàng nhận</div>
+        <div>• Giá sản phẩm theo mã SP của gian hàng mới</div>
+        <div>• Thao tác <b>không thể hoàn tác</b> sau khi xác nhận</div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+</div>
+<!-- ── END BẢNG CHUYỂN ĐỔI ── -->
+
+
+<!-- ── POPUP XÁC NHẬN CHUYỂN ĐƠN ── -->
+<div id="transferConfirmBg" style="display:none; position:fixed; inset:0;
+     background:rgba(60,40,90,0.45); backdrop-filter:blur(10px);
+     z-index:9999; align-items:center; justify-content:center; padding:16px;">
+  <div style="background:rgba(255,255,255,.88); backdrop-filter:blur(30px);
+              border:1px solid rgba(255,255,255,.9); border-radius:22px;
+              padding:30px 28px; max-width:420px; width:100%;
+              box-shadow:0 24px 60px rgba(160,130,200,.3); position:relative;
+              text-align:center;">
+
+    <!-- Icon cảnh báo -->
+    <div style="font-size:44px; margin-bottom:10px;">⚠️</div>
+    <div style="font-size:16px; font-weight:700; color:#3b3551; margin-bottom:6px;">
+      Xác nhận chuyển đơn hàng
+    </div>
+    <div style="font-size:12px; color:#9b8bb4; margin-bottom:20px;">
+      Vui lòng đọc kỹ trước khi xác nhận
+    </div>
+
+    <!-- Nội dung cảnh báo -->
+    <div style="background:rgba(254,243,199,.6); border:1.5px solid rgba(252,211,77,.5);
+                border-radius:14px; padding:16px 18px; margin-bottom:22px;
+                text-align:left; font-size:12px; color:#78350f; line-height:1.9;">
+      <div style="font-weight:800; font-size:12px; color:#92400e; letter-spacing:.3px; margin-bottom:8px;">
+        📋 THÔNG TIN QUAN TRỌNG
+      </div>
+      <div>🔢 Đơn hàng sẽ có <b>mã đơn mới</b> tại gian hàng mới</div>
+      <div>🚫 Đơn cũ sẽ bị <b>huỷ</b> với lý do: <i>Khách hàng yêu cầu huỷ đơn</i></div>
+      <div>💰 Giá sản phẩm sẽ <b>thay đổi</b> theo mã sản phẩm mới của gian hàng nhận đơn</div>
+      <div style="margin-top:8px; font-weight:700; color:#b45309;">
+        ✅ Xác nhận đã điền đúng thông tin
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div style="display:flex; gap:10px;">
+      <button onclick="closeTransferConfirm()"
+        style="flex:1; padding:12px; border:1.5px solid rgba(198,181,255,.4);
+               border-radius:12px; background:rgba(255,255,255,.5); color:#7c6fa0;
+               font-family:inherit; font-size:13px; font-weight:600; cursor:pointer; transition:all .2s;"
+        onmouseover="this.style.background='rgba(255,255,255,.8)'"
+        onmouseout="this.style.background='rgba(255,255,255,.5)'">
+        Huỷ bỏ
+      </button>
+      <button onclick="submitTransferOrder()"
+        style="flex:2; padding:12px; border:none; border-radius:12px;
+               background:linear-gradient(135deg,#f59e0b,#d97706); color:#fff;
+               font-family:inherit; font-size:13px; font-weight:700; cursor:pointer;
+               box-shadow:0 4px 14px rgba(245,158,11,.35); transition:all .2s;"
+        onmouseover="this.style.transform='translateY(-1px)'"
+        onmouseout="this.style.transform=''">
+        ✅ Xác nhận chuyển
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── POPUP KẾT QUẢ: ĐANG PHÁT TRIỂN ── -->
+<div id="transferDevBg" style="display:none; position:fixed; inset:0;
+     background:rgba(60,40,90,0.45); backdrop-filter:blur(10px);
+     z-index:10000; align-items:center; justify-content:center; padding:16px;">
+  <div style="background:rgba(255,255,255,.88); backdrop-filter:blur(30px);
+              border:1px solid rgba(255,255,255,.9); border-radius:22px;
+              padding:30px 28px; max-width:380px; width:100%;
+              box-shadow:0 24px 60px rgba(160,130,200,.3); text-align:center;">
+    <div style="font-size:48px; margin-bottom:12px;">🚧</div>
+    <div style="font-size:16px; font-weight:700; color:#3b3551; margin-bottom:8px;">
+      Tính năng đang phát triển
+    </div>
+    <div style="font-size:13px; color:#9b8bb4; line-height:1.7; margin-bottom:22px;">
+      Tính năng <b>chuyển đơn hàng</b> hiện đang được phát triển.<br>
+      Vui lòng đợi trong thời gian tới! 🙏
+    </div>
+    <button onclick="closeTransferDev()"
+      style="width:100%; padding:12px; border:none; border-radius:12px;
+             background:linear-gradient(135deg,#c8b4fa,#a78bfa); color:#fff;
+             font-family:inherit; font-size:14px; font-weight:700; cursor:pointer;
+             box-shadow:0 4px 14px rgba(167,139,250,.4); transition:all .2s;"
+      onmouseover="this.style.transform='translateY(-1px)'"
+      onmouseout="this.style.transform=''">
+      Đã hiểu
+    </button>
+  </div>
+</div>
+
+
+<script>
+// ── TRANSFER ORDER LOGIC ────────────────────────────────────
+function openTransferConfirm() {
+  const orderCode = document.getElementById('transferOrderCode').value.trim();
+  const productCode = document.getElementById('transferProductCode').value.trim();
+  const key = document.getElementById('transferKey').value.trim();
+  const shopUrl = document.getElementById('transferShopUrl').value.trim();
+
+  if (!orderCode) {
+    alert('⚠️ Vui lòng nhập mã đơn hàng.');
+    document.getElementById('transferOrderCode').focus();
+    return;
+  }
+  if (!productCode) {
+    alert('⚠️ Vui lòng nhập mã sản phẩm.');
+    document.getElementById('transferProductCode').focus();
+    return;
+  }
+  if (!key) {
+    alert('⚠️ Vui lòng nhập Key chuyển đơn.');
+    document.getElementById('transferKey').focus();
+    return;
+  }
+  if (!shopUrl) {
+    alert('⚠️ Vui lòng nhập link gian hàng nhận đơn.');
+    document.getElementById('transferShopUrl').focus();
+    return;
+  }
+
+  // Hiện popup xác nhận
+  document.getElementById('transferConfirmBg').style.display = 'flex';
+}
+
+function closeTransferConfirm() {
+  document.getElementById('transferConfirmBg').style.display = 'none';
+}
+
+function submitTransferOrder() {
+  // Đóng popup xác nhận → mở popup đang phát triển
+  document.getElementById('transferConfirmBg').style.display = 'none';
+  document.getElementById('transferDevBg').style.display = 'flex';
+}
+
+function closeTransferDev() {
+  document.getElementById('transferDevBg').style.display = 'none';
+}
+
+// Đóng popup khi click nền
+document.getElementById('transferConfirmBg').addEventListener('click', function(e) {
+  if (e.target === this) closeTransferConfirm();
+});
+document.getElementById('transferDevBg').addEventListener('click', function(e) {
+  if (e.target === this) closeTransferDev();
+});
+</script>
+
 </script>
 </body>
 </html>
