@@ -919,11 +919,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 /* ── KEY SHOP ── */
 const PACKS = {
-  basic:     { name: 'BASIC PACK',         price: 599999,    info: 'MUA GOI BASIC SWC' },
-  advance:   { name: 'ADVANCE PACK',       price: 1999999,   info: 'MUA GOI ADVANCE SWC' },
-  pro:       { name: 'PRO PACK',           price: 3999999,   info: 'MUA GOI PRO SWC' },
-  unlimited: { name: 'UNLIMITED MONTHLY',  price: 12000000,  info: 'MUA GOI UNLIMITED THANG SWC',
-               altPrice: 3000000,          altInfo: 'MUA GOI UNLIMITED TUAN SWC' },
+  basic:     { name: 'BASIC PACK',         price: 599999,    info: 'BASIC' },
+  advance:   { name: 'ADVANCE PACK',       price: 1999999,   info: 'ADVANCE' },
+  pro:       { name: 'PRO PACK',           price: 3999999,   info: 'PRO' },
+  unlimited: { name: 'UNLIMITED MONTHLY',  price: 12000000,  info: 'UNLIMITED MONTHLY',
+               altPrice: 3000000,          altInfo: 'UNLIMITED WEEKLY' },
 };
 let selectedPack = null;
 
@@ -947,7 +947,7 @@ function placeOrder() {
 
   const pack = PACKS[selectedPack];
   let price = pack.price;
-  let addInfo = encodeURIComponent(pack.info + ' ' + contact);
+  let addInfo = encodeURIComponent(pack.info + ' SWC ' + contact.trim());
 
   // Unlimited: hỏi chọn tuần/tháng
   if (selectedPack === 'unlimited') {
@@ -956,7 +956,7 @@ function placeOrder() {
 ❌ Cancel = Tuần (3.000.000đ)');
     if (!choice) {
       price = pack.altPrice;
-      addInfo = encodeURIComponent(pack.altInfo + ' ' + contact);
+      aaddInfo = encodeURIComponent(pack.altInfo + ' SWC ' + contact.trim());
     }
   }
 
