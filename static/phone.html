@@ -273,6 +273,144 @@ body{
   box-shadow:0 4px 14px rgba(245,158,11,.35);transition:all .2s;
 }
 .btn-modal-confirm:hover{transform:translateY(-1px)}
+
+/* ── KEY SHOP PANEL ── */
+.key-shop-panel {
+  position: fixed;
+  right: 24px;
+  top: 24px;
+  width: 320px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255,255,255,.8);
+  border-radius: 20px;
+  padding: 20px 18px 18px;
+  box-shadow: 0 8px 32px rgba(160,130,200,.18);
+  z-index: 500;
+}
+.key-shop-title {
+  font-size: 13px; font-weight: 800; color: #3b3551;
+  letter-spacing: .4px; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 7px;
+}
+.pack-card {
+  border-radius: 14px; padding: 13px 14px; margin-bottom: 10px;
+  border: 2px solid transparent; cursor: pointer;
+  transition: all .2s; position: relative;
+}
+.pack-card:hover { transform: translateY(-1px); }
+.pack-card.selected { border-color: #a78bfa; box-shadow: 0 4px 16px rgba(167,139,250,.3); }
+.pack-basic    { background: rgba(216,180,254,.15); }
+.pack-advance  { background: rgba(167,243,208,.15); }
+.pack-pro      { background: rgba(254,240,138,.18); }
+.pack-unlimited{ background: rgba(251,191,36,.13); }
+.pack-name {
+  font-size: 12px; font-weight: 800; color: #3b3551;
+  letter-spacing: .5px; margin-bottom: 3px;
+}
+.pack-price {
+  font-size: 18px; font-weight: 800; color: #7c3aed;
+  margin-bottom: 7px; line-height: 1;
+}
+.pack-price span { font-size: 11px; font-weight: 500; color: #9b8bb4; }
+.pack-features {
+  display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px;
+}
+.pack-feat {
+  font-size: 10px; font-weight: 600; padding: 2px 8px;
+  border-radius: 20px; background: rgba(255,255,255,.6);
+  color: #5b4b8a; border: 1px solid rgba(198,181,255,.4);
+}
+.pack-feat.zero { color: #c0b0d8; text-decoration: line-through; }
+.pack-hsd {
+  font-size: 10px; font-weight: 700; color: #9b8bb4;
+  margin-top: 4px;
+}
+.pack-badge {
+  position: absolute; top: -7px; right: 10px;
+  background: linear-gradient(135deg,#f59e0b,#d97706);
+  color: #fff; font-size: 9px; font-weight: 800;
+  padding: 2px 8px; border-radius: 20px; letter-spacing: .4px;
+}
+.key-shop-divider {
+  height: 1px; background: rgba(198,181,255,.25);
+  margin: 12px 0;
+}
+.key-shop-label {
+  font-size: 10px; font-weight: 700; color: #9b8bb4;
+  letter-spacing: .4px; text-transform: uppercase;
+  display: block; margin-bottom: 5px;
+}
+.key-shop-input {
+  width: 100%; box-sizing: border-box;
+  padding: 10px 13px; margin-bottom: 10px;
+  border: 1.5px solid rgba(198,181,255,.5); border-radius: 10px;
+  font-size: 13px; font-family: inherit;
+  background: rgba(255,255,255,.65); color: #3b3551;
+  outline: none; transition: border .2s;
+}
+.key-shop-input:focus { border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(167,139,250,.15); }
+.btn-order {
+  width: 100%; padding: 12px; border: none; border-radius: 12px;
+  background: linear-gradient(135deg,#c8b4fa,#a78bfa);
+  color: #fff; font-family: inherit; font-size: 14px; font-weight: 800;
+  cursor: pointer; transition: all .2s;
+  box-shadow: 0 4px 14px rgba(167,139,250,.4);
+}
+.btn-order:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(167,139,250,.5); }
+.btn-order:disabled { background: rgba(200,190,220,.4); color: rgba(100,80,140,.4); box-shadow: none; cursor: not-allowed; transform: none; }
+.qr-wrap {
+  display: none; text-align: center; margin-top: 14px;
+}
+.qr-wrap img {
+  width: 180px; height: 180px; border-radius: 14px;
+  border: 2px solid rgba(198,181,255,.4);
+  box-shadow: 0 4px 16px rgba(160,130,200,.2);
+}
+.qr-info {
+  font-size: 11px; font-weight: 600; color: #5b4b8a;
+  margin-top: 8px; line-height: 1.6;
+}
+.btn-confirm-paid {
+  width: 100%; padding: 11px; border: none; border-radius: 12px;
+  background: linear-gradient(135deg,#6ee7b7,#34d399);
+  color: #065f46; font-family: inherit; font-size: 13px; font-weight: 800;
+  cursor: pointer; transition: all .2s; margin-top: 10px;
+  box-shadow: 0 4px 14px rgba(52,211,153,.35);
+}
+.btn-confirm-paid:hover { transform: translateY(-1px); }
+/* Popup cảm ơn */
+.thankyou-bg {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  align-items: center; justify-content: center;
+  background: rgba(60,40,90,.35); backdrop-filter: blur(10px);
+}
+.thankyou-bg.show { display: flex; }
+.thankyou-box {
+  width: 100%; max-width: 360px; margin: 16px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(30px); border-radius: 22px;
+  padding: 32px 28px; text-align: center;
+  box-shadow: 0 24px 60px rgba(100,200,150,.25);
+  border: 1px solid rgba(255,255,255,.9);
+}
+.thankyou-icon { font-size: 52px; margin-bottom: 12px; }
+.thankyou-title {
+  font-size: 16px; font-weight: 800; color: #065f46;
+  margin-bottom: 10px; line-height: 1.4;
+}
+.btn-thankyou-close {
+  margin-top: 16px; padding: 10px 28px; border: none; border-radius: 12px;
+  background: linear-gradient(135deg,#c8b4fa,#a78bfa);
+  color: #fff; font-family: inherit; font-size: 13px; font-weight: 700;
+  cursor: pointer;
+}
+@media(max-width:900px){
+  .key-shop-panel { position: static; width: 100%; max-height: none; margin-bottom: 20px; }
+}
 </style>
 </head>
 <body>
@@ -414,9 +552,7 @@ body{
         <label class="transfer-label">Link gian hàng nhận đơn</label>
         <input class="transfer-inp transfer-inp-green" id="transferShopUrl" type="text"
                placeholder="VD: https://chiaki.vn/gian-hang-st****"/>
-        <input class="transfer-inp transfer-inp-green" id="transferNewProductCode" type="text"
-       placeholder="VD: P0123456"
-       style="letter-spacing:.8px;font-family:monospace;"/>
+
         <div class="transfer-note">
           <div style="font-weight:700;margin-bottom:6px;color:#047857;">📌 Lưu ý khi chuyển đơn:</div>
           <div>• Đơn cũ sẽ bị <b>huỷ tự động</b> sau khi chuyển</div>
@@ -428,6 +564,103 @@ body{
 
     </div>
   </div>
+
+
+<!-- ── PANEL MUA KEY ── -->
+<div class="key-shop-panel" id="keyShopPanel">
+  <div class="key-shop-title">🛒 Mua gói KEY</div>
+
+  <!-- BASIC -->
+  <div class="pack-card pack-basic" id="pack-basic" onclick="selectPack('basic')">
+    <div class="pack-name">BASIC PACK</div>
+    <div class="pack-price">599.999<span>đ</span></div>
+    <div class="pack-features">
+      <span class="pack-feat">📞 10 PHONE-KEY</span>
+      <span class="pack-feat">🚫 10 CANCEL-KEY</span>
+      <span class="pack-feat zero">🔄 0 TRANSFER-KEY</span>
+    </div>
+    <div class="pack-hsd">⏳ HSD: 1 tuần</div>
+  </div>
+
+  <!-- ADVANCE -->
+  <div class="pack-card pack-advance" id="pack-advance" onclick="selectPack('advance')">
+    <div class="pack-name">ADVANCE PACK</div>
+    <div class="pack-price">1.999.999<span>đ</span></div>
+    <div class="pack-features">
+      <span class="pack-feat">📞 50 PHONE-KEY</span>
+      <span class="pack-feat">🚫 50 CANCEL-KEY</span>
+      <span class="pack-feat">🔄 50 TRANSFER-KEY</span>
+    </div>
+    <div class="pack-hsd">⏳ HSD: 1 tháng</div>
+  </div>
+
+  <!-- PRO -->
+  <div class="pack-card pack-pro" id="pack-pro" onclick="selectPack('pro')">
+    <div class="pack-badge">⭐ PHỔ BIẾN</div>
+    <div class="pack-name">PRO PACK</div>
+    <div class="pack-price">3.999.999<span>đ</span></div>
+    <div class="pack-features">
+      <span class="pack-feat">📞 100 PHONE-KEY</span>
+      <span class="pack-feat">🚫 100 CANCEL-KEY</span>
+      <span class="pack-feat">🔄 100 TRANSFER-KEY</span>
+    </div>
+    <div class="pack-hsd">⏳ HSD: Không giới hạn</div>
+  </div>
+
+  <!-- UNLIMITED -->
+  <div class="pack-card pack-unlimited" id="pack-unlimited" onclick="selectPack('unlimited')">
+    <div class="pack-badge" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">👑 VIP</div>
+    <div class="pack-name">UNLIMITED</div>
+    <div class="pack-price" style="font-size:14px;line-height:1.5;">
+      12.000.000<span>đ/tháng</span><br>
+      <span style="font-size:12px;color:#7c3aed;">3.000.000đ/tuần</span>
+    </div>
+    <div class="pack-features">
+      <span class="pack-feat">📞 ∞ PHONE-KEY</span>
+      <span class="pack-feat">🚫 ∞ CANCEL-KEY</span>
+      <span class="pack-feat">🔄 ∞ TRANSFER-KEY</span>
+    </div>
+    <div class="pack-hsd">⏳ HSD: Theo gói chọn</div>
+  </div>
+
+  <div class="key-shop-divider"></div>
+
+  <!-- THÔNG TIN LIÊN HỆ -->
+  <label class="key-shop-label">SĐT Zalo hoặc Username Telegram</label>
+  <input class="key-shop-input" id="shopContact" type="text" placeholder="VD: 0987654321 hoặc @username"/>
+
+  <label class="key-shop-label">Hình thức thanh toán</label>
+  <input class="key-shop-input" value="Chuyển khoản ngân hàng" readonly
+         style="background:rgba(216,180,254,.15);color:#7c3aed;font-weight:700;cursor:default;"/>
+
+  <button class="btn-order" id="btnOrder" onclick="placeOrder()">
+    🛒 &nbsp;Đặt hàng
+  </button>
+
+  <!-- QR CODE -->
+  <div class="qr-wrap" id="qrWrap">
+    <img id="qrImg" src="" alt="QR Chuyển khoản"/>
+    <div class="qr-info" id="qrInfo"></div>
+    <button class="btn-confirm-paid" onclick="confirmPaid()">
+      ✅ &nbsp;XÁC NHẬN ĐÃ THANH TOÁN
+    </button>
+  </div>
+</div>
+
+<!-- POPUP CẢM ƠN -->
+<div class="thankyou-bg" id="thankyouBg">
+  <div class="thankyou-box">
+    <div class="thankyou-icon">🎉</div>
+    <div class="thankyou-title">
+      CẢM ƠN BẠN!<br>
+      ĐỘI NGŨ CHÚNG TÔI SẼ GỬI<br>
+      GÓI MÃ KHOÁ (KEY PACK)<br>
+      CỦA BẠN TRONG VÀI PHÚT.<br>
+      <span style="color:#059669;">CHÚC BẠN BUÔN MAY BÁN ĐẮT 🛍️</span>
+    </div>
+    <button class="btn-thankyou-close" onclick="closeThankyou()">Đóng</button>
+  </div>
+</div>
 
 </div><!-- end .wrap -->
 
@@ -647,13 +880,11 @@ function openTransferConfirm() {
   const productCode = document.getElementById('transferProductCode').value.trim();
   const key         = document.getElementById('transferKey').value.trim();
   const shopUrl     = document.getElementById('transferShopUrl').value.trim();
-  const newProductCode = document.getElementById('transferNewProductCode').value.trim();
-  
-  if (!orderCode)       { alert('⚠️ Vui lòng nhập mã đơn hàng.');          document.getElementById('transferOrderCode').focus();   return; }
-  if (!productCode)     { alert('⚠️ Vui lòng nhập mã sản phẩm.');           document.getElementById('transferProductCode').focus(); return; }
-  if (!key)             { alert('⚠️ Vui lòng nhập Key chuyển đơn.');         document.getElementById('transferKey').focus();         return; }
-  if (!shopUrl)         { alert('⚠️ Vui lòng nhập link gian hàng nhận đơn.'); document.getElementById('transferShopUrl').focus();    return; }
-  if (!newProductCode)  { alert('⚠️ Vui lòng nhập mã sản phẩm tại gian hàng nhận đơn.'); document.getElementById('transferNewProductCode').focus();    return; }
+
+  if (!orderCode)   { alert('⚠️ Vui lòng nhập mã đơn hàng.');          document.getElementById('transferOrderCode').focus();   return; }
+  if (!productCode) { alert('⚠️ Vui lòng nhập mã sản phẩm.');           document.getElementById('transferProductCode').focus(); return; }
+  if (!key)         { alert('⚠️ Vui lòng nhập Key chuyển đơn.');         document.getElementById('transferKey').focus();         return; }
+  if (!shopUrl)     { alert('⚠️ Vui lòng nhập link gian hàng nhận đơn.'); document.getElementById('transferShopUrl').focus();    return; }
 
   document.getElementById('transferConfirmBg').classList.add('show');
 }
@@ -684,6 +915,75 @@ window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('lastPhoneKey');
   if (saved) document.getElementById('inpKey').value = saved;
 });
+
+
+/* ── KEY SHOP ── */
+const PACKS = {
+  basic:     { name: 'BASIC PACK',         price: 599999,    info: 'MUA GOI BASIC SWC' },
+  advance:   { name: 'ADVANCE PACK',       price: 1999999,   info: 'MUA GOI ADVANCE SWC' },
+  pro:       { name: 'PRO PACK',           price: 3999999,   info: 'MUA GOI PRO SWC' },
+  unlimited: { name: 'UNLIMITED MONTHLY',  price: 12000000,  info: 'MUA GOI UNLIMITED THANG SWC',
+               altPrice: 3000000,          altInfo: 'MUA GOI UNLIMITED TUAN SWC' },
+};
+let selectedPack = null;
+
+function selectPack(id) {
+  selectedPack = id;
+  document.querySelectorAll('.pack-card').forEach(el => el.classList.remove('selected'));
+  document.getElementById('pack-' + id).classList.add('selected');
+  document.getElementById('qrWrap').style.display = 'none';
+}
+
+function placeOrder() {
+  if (!selectedPack) {
+    alert('Vui lòng chọn một gói KEY trước!');
+    return;
+  }
+  const contact = document.getElementById('shopContact').value.trim();
+  if (!contact) {
+    alert('Vui lòng nhập SĐT Zalo hoặc Username Telegram!');
+    return;
+  }
+
+  const pack = PACKS[selectedPack];
+  let price = pack.price;
+  let addInfo = encodeURIComponent(pack.info + ' ' + contact);
+
+  // Unlimited: hỏi chọn tuần/tháng
+  if (selectedPack === 'unlimited') {
+    const choice = confirm('Bạn muốn mua:
+✅ OK = Tháng (12.000.000đ)
+❌ Cancel = Tuần (3.000.000đ)');
+    if (!choice) {
+      price = pack.altPrice;
+      addInfo = encodeURIComponent(pack.altInfo + ' ' + contact);
+    }
+  }
+
+  const qrUrl = `https://img.vietqr.io/image/TCB-9693333333-qr_only.png?amount=${price}&addInfo=${addInfo}&accountName=HA%20THANH%20HOANG`;
+  document.getElementById('qrImg').src = qrUrl;
+  document.getElementById('qrInfo').innerHTML =
+    `<b>${pack.name}</b><br>` +
+    `💰 Số tiền: <b>${price.toLocaleString('vi-VN')}đ</b><br>` +
+    `📋 Nội dung: <b>${decodeURIComponent(addInfo)}</b><br>` +
+    `🏦 Techcombank — <b>9693333333</b><br>` +
+    `👤 HA THANH HOANG`;
+  document.getElementById('qrWrap').style.display = 'block';
+  document.getElementById('qrWrap').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function confirmPaid() {
+  document.getElementById('thankyouBg').classList.add('show');
+  document.getElementById('qrWrap').style.display = 'none';
+}
+
+function closeThankyou() {
+  document.getElementById('thankyouBg').classList.remove('show');
+  selectedPack = null;
+  document.querySelectorAll('.pack-card').forEach(el => el.classList.remove('selected'));
+  document.getElementById('shopContact').value = '';
+}
+
 </script>
 
 </body>
