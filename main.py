@@ -42,3 +42,15 @@ async def proxy_check_cancel_key(body: dict):
     async with httpx.AsyncClient(timeout=10) as client:
         res = await client.post(f"{MAIN_SERVER}/api/order/cancel/check-key", json=body)
     return res.json()
+    
+@app.post("/api/shop-orders")
+async def proxy_shop_orders(body: dict):
+    async with httpx.AsyncClient(timeout=20) as client:
+        res = await client.post(f"{MAIN_SERVER}/api/shop-orders", json=body)
+    return res.json()
+
+@app.post("/api/shop-orders/check-key")
+async def proxy_check_getorder_key(body: dict):
+    async with httpx.AsyncClient(timeout=10) as client:
+        res = await client.post(f"{MAIN_SERVER}/api/shop-orders/check-key", json=body)
+    return res.json()
