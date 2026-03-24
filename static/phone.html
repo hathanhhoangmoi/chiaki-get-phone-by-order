@@ -608,57 +608,68 @@ body{
   <div class="key-shop-title">🛒 BUY KEY</div>
 
   <!-- BASIC -->
-  <div class="pack-card pack-basic" id="pack-basic" onclick="selectPack('basic')">
-    <div class="pack-name">BASIC PACK</div>
-    <div class="pack-price">599.999<span>đ</span></div>
-    <div class="pack-features">
-      <span class="pack-feat">📞 10 PHONE-KEY</span>
-      <span class="pack-feat">🚫 10 CANCEL-KEY</span>
-      <span class="pack-feat zero">🔄 0 TRANSFER-KEY</span>
-    </div>
-    <div class="pack-hsd">⏳ HSD: 1 tuần</div>
+<div class="pack-card pack-basic" id="pack-basic" onclick="selectPack('basic')">
+  <div class="pack-name">BASIC PACK</div>
+  <div class="pack-old-price">999.999đ</div>
+  <div class="pack-price">599.999<span>đ</span>
+    <span class="pack-sale-badge">-40%</span>
   </div>
+  <div class="pack-features">
+    <span class="pack-feat">10 PHONE-KEY</span>
+    <span class="pack-feat">10 CANCEL-KEY</span>
+    <span class="pack-feat zero">0 TRANSFER-KEY</span>
+  </div>
+  <div class="pack-hsd">HSD 1 tuần</div>
+</div>
 
-  <!-- ADVANCE -->
-  <div class="pack-card pack-advance" id="pack-advance" onclick="selectPack('advance')">
-    <div class="pack-name">ADVANCE PACK</div>
-    <div class="pack-price">1.599.999<span>đ</span></div>
-    <div class="pack-features">
-      <span class="pack-feat">📞 50 PHONE-KEY</span>
-      <span class="pack-feat">🚫 50 CANCEL-KEY</span>
-      <span class="pack-feat">🔄 50 TRANSFER-KEY</span>
-    </div>
-    <div class="pack-hsd">⏳ HSD: 1 tháng</div>
+<!-- ADVANCE -->
+<div class="pack-card pack-advance" id="pack-advance" onclick="selectPack('advance')">
+  <div class="pack-name">ADVANCE PACK</div>
+  <div class="pack-old-price">2.999.999đ</div>
+  <div class="pack-price">1.599.999<span>đ</span>
+    <span class="pack-sale-badge" style="background:linear-gradient(135deg,#34d399,#059669)">-47%</span>
   </div>
+  <div class="pack-features">
+    <span class="pack-feat">50 PHONE-KEY</span>
+    <span class="pack-feat">50 CANCEL-KEY</span>
+    <span class="pack-feat">50 TRANSFER-KEY</span>
+  </div>
+  <div class="pack-hsd">HSD 1 tháng</div>
+</div>
 
-  <!-- PRO -->
-  <div class="pack-card pack-pro" id="pack-pro" onclick="selectPack('pro')">
-    <div class="pack-badge">⭐ PHỔ BIẾN</div>
-    <div class="pack-name">PRO PACK</div>
-    <div class="pack-price">2.999.999<span>đ</span></div>
-    <div class="pack-features">
-      <span class="pack-feat">📞 100 PHONE-KEY</span>
-      <span class="pack-feat">🚫 100 CANCEL-KEY</span>
-      <span class="pack-feat">🔄 100 TRANSFER-KEY</span>
-    </div>
-    <div class="pack-hsd">⏳ HSD: Không giới hạn</div>
+<!-- PRO -->
+<div class="pack-card pack-pro" id="pack-pro" onclick="selectPack('pro')">
+  <div class="pack-badge">PHỔ BIẾN</div>
+  <div class="pack-name">PRO PACK</div>
+  <div class="pack-old-price">5.999.999đ</div>
+  <div class="pack-price">2.999.999<span>đ</span>
+    <span class="pack-sale-badge" style="background:linear-gradient(135deg,#f59e0b,#d97706)">-50%</span>
   </div>
+  <div class="pack-features">
+    <span class="pack-feat">100 PHONE-KEY</span>
+    <span class="pack-feat">100 CANCEL-KEY</span>
+    <span class="pack-feat">100 TRANSFER-KEY</span>
+  </div>
+  <div class="pack-hsd">HSD: Không giới hạn</div>
+</div>
 
-  <!-- UNLIMITED -->
-  <div class="pack-card pack-unlimited" id="pack-unlimited" onclick="selectPack('unlimited')">
-    <div class="pack-badge" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);">👑 VIP</div>
-    <div class="pack-name">UNLIMITED</div>
-    <div class="pack-price" style="font-size:14px;line-height:1.5;">
-      12.000.000<span>đ/tháng</span><br>
-      <span style="font-size:12px;color:#7c3aed;">4.000.000đ/tuần</span>
-    </div>
-    <div class="pack-features">
-      <span class="pack-feat">📞 ∞ PHONE-KEY</span>
-      <span class="pack-feat">🚫 ∞ CANCEL-KEY</span>
-      <span class="pack-feat">🔄 ∞ TRANSFER-KEY</span>
-    </div>
-    <div class="pack-hsd">⏳ HSD: Theo gói chọn</div>
+<!-- UNLIMITED -->
+<div class="pack-card pack-unlimited" id="pack-unlimited" onclick="selectPack('unlimited')">
+  <div class="pack-badge" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">VIP</div>
+  <div class="pack-name">UNLIMITED</div>
+  <div class="pack-old-price">20.000.000đ</div>
+  <div class="pack-price" style="font-size:14px;line-height:1.5">
+    12.000.000<span>đ/tháng</span><br>
+    <span style="font-size:12px;color:#7c3aed">4.000.000đ/tuần</span>
+    <span class="pack-sale-badge" style="background:linear-gradient(135deg,#7c3aed,#a78bfa);font-size:8px">-40%</span>
   </div>
+  <div class="pack-features">
+    <span class="pack-feat">∞ PHONE-KEY</span>
+    <span class="pack-feat">∞ CANCEL-KEY</span>
+    <span class="pack-feat">∞ TRANSFER-KEY</span>
+  </div>
+  <div class="pack-hsd">HSD: Không giới hạn</div>
+</div>
 
   <div class="key-shop-divider"></div>
 
