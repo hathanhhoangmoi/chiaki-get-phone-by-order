@@ -465,6 +465,11 @@ body{
 .btn-back:hover{background:rgba(255,255,255,.8);}
 .cancel-msg{margin-top:14px;font-size:12px;display:none;}
 .cancel-msg.show{display:block;}
+.notice-cancel {
+  background: rgba(254, 202, 202, .25);
+  border: 1px solid rgba(248, 113, 113, .4);
+  color: #991b1b;
+}
 </style>
 </head>
 <body>
@@ -507,7 +512,6 @@ body{
 </script>
 
 <div class="wrap">
-
   <!-- ── CARD 1: TRA CỨU SĐT ── -->
   <div class="card">
     <div class="logo phone">📞</div>
@@ -575,14 +579,14 @@ body{
 
     <div class="notice notice-cancel">
       <div class="notice-title">⚠️ QUY ĐỊNH HUỶ ĐƠN</div>
-      Huỷ theo phương thức <b>"Khách hàng yêu cầu huỷ đơn"</b> — gian hàng <b>không bị tính phí</b>.<br/><br/>
+      Đơn hàng sẽ bị huỷ theo phương thức <b>"Khách hàng yêu cầu huỷ đơn"</b> — gian hàng <b>không bị tính phí sàn</b>.<br/><br/>
       <b>📌 Yêu cầu:</b> Đơn hàng <b>CHƯA TẠO MÃ VẬN ĐƠN</b>.
     </div>
 
     <div class="field">
       <label class="label">MÃ ĐƠN HÀNG CẦN HUỶ</label>
       <input class="inp inp-mono" id="order_code" type="text"
-             placeholder="VD: R1234567890"
+             placeholder="R1234567890"
              onkeydown="if(event.key==='Enter')fetchOrderPreview()"/>
     </div>
 
@@ -627,7 +631,7 @@ body{
 
     <div class="transfer-grid">
 
-      <!-- CỘT TRÁI -->
+      <!-- GIAN HÀNG CÓ ĐƠN -->
       <div class="transfer-col transfer-col-left">
         <div class="transfer-col-title" style="color:#7c6fa0;">
           <span style="font-size:16px;">📤</span> Gian hàng phát sinh đơn hàng
@@ -649,7 +653,7 @@ body{
         </button>
       </div>
 
-      <!-- CỘT PHẢI -->
+      <!-- GIAN HÀNG NHẬN ĐƠN -->
       <div class="transfer-col transfer-col-right">
         <div class="transfer-col-title" style="color:#059669;">
           <span style="font-size:16px;">📥</span> Gian hàng nhận đơn hàng mới
@@ -663,7 +667,7 @@ body{
           <div style="font-weight:700;margin-bottom:6px;color:#047857;">📌 Lưu ý khi chuyển đơn:</div>
           <div>• Đơn cũ sẽ bị <b>huỷ tự động</b> sau khi chuyển</div>
           <div>• Mã đơn mới sẽ được tạo tại gian hàng nhận</div>
-          <div>• Giá sản phẩm theo mã SP của gian hàng mới</div>
+          <div>• Giá sản phẩm cấu hình mã SP của gian hàng mới</div>
           <div>• Thao tác <b>không thể hoàn tác</b> sau khi xác nhận</div>
         </div>
       </div>
@@ -780,7 +784,6 @@ body{
 </div>
 
 </div><!-- end .wrap -->
-
 
 <!-- ── MODAL XÁC NHẬN CHUYỂN ĐƠN ── -->
 <div class="modal-bg" id="transferConfirmBg">
