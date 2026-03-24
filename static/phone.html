@@ -988,7 +988,7 @@ function closeShopOrders() {
       <div class="pack-retail-price">269.999<span>đ</span></div>
     </div>
 
-    <div class="pack-retail" id="pack-retail-30allkey" onclick="selectPack('retail_allkey30')">
+    <div class="pack-retail" id="pack-retail-30allkey" onclick="selectPack('retail_allkey90')">
       <div class="pack-retail-name">90 ALL-KEY</div>
       <div class="pack-retail-price">999.999<span>đ</span></div>
     </div>
@@ -1301,20 +1301,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
 /* ── KEY SHOP ── */
 const PACKS = {
-  retail_phone10:   { name: '10 PHONE-KEY',       price: 159999,    info: 'PHONE10' },
-  retail_cancel10:  { name: '10 CANCEL-KEY',      price: 159999,    info: 'CANCEL10' },
-  retail_phone15:   { name: '15 PHONE-KEY',       price: 199999,    info: 'PHONE15' },
-  retail_cancel15:  { name: '15 CANCEL-KEY',      price: 199999,    info: 'CANCEL15' },
-  retail_phone20:   { name: '20 PHONE-KEY',       price: 229999,    info: 'PHONE20' },
-  retail_cancel20:  { name: '20 CANCEL-KEY',      price: 229999,    info: 'CANCEL20' },
-  retail_order10:   { name: '10 ORDER-KEY',       price: 199999,    info: 'ORDER10' },
-  retail_order15:   { name: '15 ORDER-KEY',       price: 229999,    info: 'ORDER15' },
-  retail_order20:   { name: '20 ORDER-KEY',       price: 269999,    info: 'ORDER20' },
-  retail_allkey30:  { name: '90 ALL-KEY',         price: 999999,    info: '90ALLKEY' },
-  basic:            { name: 'BASIC PACK',         price: 599999,    info: 'BASIC' },
-  advance:          { name: 'ADVANCE PACK',       price: 1599999,   info: 'ADVANCE' },
-  pro:              { name: 'PRO PACK',           price: 2999999,   info: 'PRO' },
-  unlimited:        { name: 'UNLIMITED MONTHLY',  price: 12000000,  info: 'UNLIMITED MONTHLY',
+  retail_phone10:   { name: '✨Bạn đã chọn mua 10 PHONE-KEY',       price: 159999,    info: 'PHONE10' },
+  retail_cancel10:  { name: '✨Bạn đã chọn mua 10 CANCEL-KEY',      price: 159999,    info: 'CANCEL10' },
+  retail_phone15:   { name: '✨Bạn đã chọn mua 15 PHONE-KEY',       price: 199999,    info: 'PHONE15' },
+  retail_cancel15:  { name: '✨Bạn đã chọn mua 15 CANCEL-KEY',      price: 199999,    info: 'CANCEL15' },
+  retail_phone20:   { name: '✨Bạn đã chọn mua 20 PHONE-KEY',       price: 229999,    info: 'PHONE20' },
+  retail_cancel20:  { name: '✨Bạn đã chọn mua 20 CANCEL-KEY',      price: 229999,    info: 'CANCEL20' },
+  retail_order10:   { name: '✨Bạn đã chọn mua 10 ORDER-KEY',       price: 199999,    info: 'ORDER10' },
+  retail_order15:   { name: '✨Bạn đã chọn mua 15 ORDER-KEY',       price: 229999,    info: 'ORDER15' },
+  retail_order20:   { name: '✨Bạn đã chọn mua 20 ORDER-KEY',       price: 269999,    info: 'ORDER20' },
+  retail_allkey90:  { name: '✨Bạn đã chọn mua 90 ALL-KEY, mỗi loại 30 key (trừ key TRANSFER)',         price: 999999,    info: 'ALLKEY90' },
+  basic:            { name: '✨Bạn đã chọn mua BASIC PACK',         price: 599999,    info: 'BASIC' },
+  advance:          { name: '✨Bạn đã chọn mua ADVANCE PACK',       price: 1599999,   info: 'ADVANCE' },
+  pro:              { name: '✨Bạn đã chọn mua PRO PACK',           price: 2999999,   info: 'PRO' },
+  unlimited:        { name: '✨Bạn đã chọn mua UNLIMITED MONTHLY',  price: 12000000,  info: 'UNLIMITED MONTHLY',
                      altPrice: 4000000,          altInfo: 'UNLIMITED WEEKLY' },
 };
 let selectedPack = null;
