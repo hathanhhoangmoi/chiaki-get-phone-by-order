@@ -7,7 +7,7 @@ import os
 app = FastAPI()
 
 # URL server chính để proxy API
-MAIN_SERVER = "https://chiaki-web-get-order.onrender.com"
+MAIN_SERVER = "https://banhangcungchang.onrender.com/"
 
 @app.get("/", response_class=HTMLResponse)
 async def index():
